@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Price Predictor</title>
+
+    <!-- Only design added -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .wrapper {
+            background: #ffffff;
+            padding: 35px 45px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            width: 420px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        form {
+            line-height: 2;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px 10px;
+            margin-top: 5px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Car Price Predictor</h1>
+
+        <form method="POST">
+            Year: <input type="number" name="Year" required>
+            Kms Driven: <input type="number" name="Kms_Driven" required>
+            owner: <input type="number" name="Owner" required>
+
+            Fuel Type:
+            <select name="Fuel_Type">
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="CNG">CNG</option>
+            </select>
+
+            Seller Type:
+            <select name="Seller_Type">
+                <option value="Dealer">Dealer</option>
+                <option value="Individual">Individual</option>
+            </select>
+
+            Transmission:
+            <select name="Transmission">
+                <option value="Manual">Manual</option>
+                <option value="Automatic">Automatic</option>
+            </select>
+
+            Mileage: <input type="number" name="Mileage" step="0.1">
+            Engine: <input type="number" name="Engine" step="0.1">
+            Power: <input type="number" name="Power" step="0.1">
+
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction %}
+        <h2>Predicted Selling Price: {{ prediction }} lakhs</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
